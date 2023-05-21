@@ -1,0 +1,33 @@
+@php $editing = isset($country) @endphp
+
+<div class="row">
+    <x-inputs.group class="col-sm-12">
+        <x-inputs.text
+            name="name"
+            label="Name"
+            :value="old('name', ($editing ? $country->name : ''))"
+            maxlength="255"
+            placeholder="Name"
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="col-sm-12">
+        <x-inputs.text
+            name="nicename"
+            label="Nicename"
+            :value="old('nicename', ($editing ? $country->nicename : ''))"
+            maxlength="255"
+            placeholder="Nicename"
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="col-sm-12">
+        <x-inputs.text
+            name="iso"
+            label="Iso"
+            :value="old('iso', ($editing ? $country->iso : ''))"
+            maxlength="255"
+            placeholder="Iso"
+        ></x-inputs.text>
+    </x-inputs.group>
+</div>
