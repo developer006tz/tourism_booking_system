@@ -24,7 +24,7 @@ class TourchallengesFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'user_id' => \App\Models\User::factory(),
         ];
     }

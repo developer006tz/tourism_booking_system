@@ -122,7 +122,7 @@ class AccomodationimagesControllerTest extends TestCase
 
         $data = [
             'type' => 'surroundings',
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'accomodations_id' => $accomodations->id,
         ];
 

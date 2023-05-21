@@ -11,7 +11,7 @@ class Toursiteimages extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['toursite_id', 'url', 'description'];
+    protected $fillable = ['toursite_id', 'image', 'description'];
 
     protected $searchableFields = ['*'];
 

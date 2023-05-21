@@ -24,7 +24,7 @@ class TourguideagentFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'guide_price_per_day' => $this->faker->randomNumber(2),
             'rating' => $this->faker->randomNumber(1),
             'distance_covered' => $this->faker->randomNumber(2),

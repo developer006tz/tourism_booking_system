@@ -9,10 +9,10 @@ use App\Http\Controllers\ToursiteController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AttractionsController;
 use App\Http\Controllers\AccomodationsController;
-use App\Http\Controllers\ToursiteimagesController;
 use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\TourguideagentController;
 use App\Http\Controllers\TourchallengesController;
+use App\Http\Controllers\ToursiteimagesController;
 use App\Http\Controllers\AttractionimagesController;
 use App\Http\Controllers\AccomodationimagesController;
 
@@ -42,35 +42,6 @@ Route::prefix('/')
         Route::resource('permissions', PermissionController::class);
 
         Route::resource('toursites', ToursiteController::class);
-        Route::get('all-toursiteimages', [
-            ToursiteimagesController::class,
-            'index',
-        ])->name('all-toursiteimages.index');
-        Route::post('all-toursiteimages', [
-            ToursiteimagesController::class,
-            'store',
-        ])->name('all-toursiteimages.store');
-        Route::get('all-toursiteimages/create', [
-            ToursiteimagesController::class,
-            'create',
-        ])->name('all-toursiteimages.create');
-        Route::get('all-toursiteimages/{toursiteimages}', [
-            ToursiteimagesController::class,
-            'show',
-        ])->name('all-toursiteimages.show');
-        Route::get('all-toursiteimages/{toursiteimages}/edit', [
-            ToursiteimagesController::class,
-            'edit',
-        ])->name('all-toursiteimages.edit');
-        Route::put('all-toursiteimages/{toursiteimages}', [
-            ToursiteimagesController::class,
-            'update',
-        ])->name('all-toursiteimages.update');
-        Route::delete('all-toursiteimages/{toursiteimages}', [
-            ToursiteimagesController::class,
-            'destroy',
-        ])->name('all-toursiteimages.destroy');
-
         Route::get('all-attractions', [
             AttractionsController::class,
             'index',
@@ -247,4 +218,33 @@ Route::prefix('/')
             TourchallengesController::class,
             'destroy',
         ])->name('all-tourchallenges.destroy');
+
+        Route::get('all-toursiteimages', [
+            ToursiteimagesController::class,
+            'index',
+        ])->name('all-toursiteimages.index');
+        Route::post('all-toursiteimages', [
+            ToursiteimagesController::class,
+            'store',
+        ])->name('all-toursiteimages.store');
+        Route::get('all-toursiteimages/create', [
+            ToursiteimagesController::class,
+            'create',
+        ])->name('all-toursiteimages.create');
+        Route::get('all-toursiteimages/{toursiteimages}', [
+            ToursiteimagesController::class,
+            'show',
+        ])->name('all-toursiteimages.show');
+        Route::get('all-toursiteimages/{toursiteimages}/edit', [
+            ToursiteimagesController::class,
+            'edit',
+        ])->name('all-toursiteimages.edit');
+        Route::put('all-toursiteimages/{toursiteimages}', [
+            ToursiteimagesController::class,
+            'update',
+        ])->name('all-toursiteimages.update');
+        Route::delete('all-toursiteimages/{toursiteimages}', [
+            ToursiteimagesController::class,
+            'destroy',
+        ])->name('all-toursiteimages.destroy');
     });

@@ -45,20 +45,6 @@ return [
         ],
     ],
 
-    'all_toursiteimages' => [
-        'name' => 'All Toursiteimages',
-        'index_title' => 'AllToursiteimages List',
-        'new_title' => 'New Toursiteimages',
-        'create_title' => 'Create Toursiteimages',
-        'edit_title' => 'Edit Toursiteimages',
-        'show_title' => 'Show Toursiteimages',
-        'inputs' => [
-            'toursite_id' => 'Toursite',
-            'url' => 'Url',
-            'description' => 'Description',
-        ],
-    ],
-
     'all_attractions' => [
         'name' => 'All Attractions',
         'index_title' => 'AllAttractions List',
@@ -203,6 +189,20 @@ return [
             'title' => 'Title',
             'description' => 'Description',
             'image' => 'Image',
+        ],
+    ],
+
+    'all_toursiteimages' => [
+        'name' => 'All Toursiteimages',
+        'index_title' => 'AllToursiteimages List',
+        'new_title' => 'New Toursiteimages',
+        'create_title' => 'Create Toursiteimages',
+        'edit_title' => 'Edit Toursiteimages',
+        'show_title' => 'Show Toursiteimages',
+        'inputs' => [
+            'toursite_id' => 'Toursite',
+            'image' => 'Image',
+            'description' => 'Description',
         ],
     ],
 

@@ -53,7 +53,7 @@
                                 @lang('crud.all_toursiteimages.inputs.toursite_id')
                             </th>
                             <th class="text-left">
-                                @lang('crud.all_toursiteimages.inputs.url')
+                                @lang('crud.all_toursiteimages.inputs.image')
                             </th>
                             <th class="text-left">
                                 @lang('crud.all_toursiteimages.inputs.description')
@@ -72,7 +72,7 @@
                             </td>
                             <td>
                                 <x-partials.thumbnail
-                                    src="{{ $toursiteimages->url ? \Storage::url($toursiteimages->url) : '' }}"
+                                    src="{{ $toursiteimages->image ? \Storage::url($toursiteimages->image) : '' }}"
                                 />
                             </td>
                             <td>{{ $toursiteimages->description ?? '-' }}</td>

@@ -23,7 +23,7 @@ class AttractionimagesFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'attractions_id' => \App\Models\Attractions::factory(),
         ];
     }

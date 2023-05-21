@@ -40,14 +40,6 @@
                                 </a>
                             </li>
                             @endcan
-                            @can('view-any', App\Models\Toursiteimages::class)
-                            <li class="nav-item">
-                                <a href="{{ route('all-toursiteimages.index') }}" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>All Toursiteimages</p>
-                                </a>
-                            </li>
-                            @endcan
                             @can('view-any', App\Models\Attractions::class)
                             <li class="nav-item">
                                 <a href="{{ route('all-attractions.index') }}" class="nav-link">
@@ -117,6 +109,14 @@
                                 <a href="{{ route('all-tourchallenges.index') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>All Tourchallenges</p>
+                                </a>
+                            </li>
+                            @endcan
+                            @can('view-any', App\Models\Toursiteimages::class)
+                            <li class="nav-item">
+                                <a href="{{ route('all-toursiteimages.index') }}" class="nav-link">
+                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                    <p>All Toursiteimages</p>
                                 </a>
                             </li>
                             @endcan

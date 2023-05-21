@@ -20,10 +20,11 @@
                     >
                 </div>
                 <div class="mb-4">
-                    <h5>@lang('crud.all_toursiteimages.inputs.url')</h5>
-                    <a target="_blank" href="{{ $toursiteimages->url }}"
-                        >{{ $toursiteimages->url ?? '-' }}</a
-                    >
+                    <h5>@lang('crud.all_toursiteimages.inputs.image')</h5>
+                    <x-partials.thumbnail
+                        src="{{ $toursiteimages->image ? \Storage::url($toursiteimages->image) : '' }}"
+                        size="150"
+                    />
                 </div>
                 <div class="mb-4">
                     <h5>@lang('crud.all_toursiteimages.inputs.description')</h5>

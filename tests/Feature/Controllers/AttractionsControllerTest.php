@@ -114,7 +114,7 @@ class AttractionsControllerTest extends TestCase
 
         $data = [
             'name' => $this->faker->name(),
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'distance' => $this->faker->randomFloat(2, 0, 9999),
             'toursite_id' => $toursite->id,
         ];

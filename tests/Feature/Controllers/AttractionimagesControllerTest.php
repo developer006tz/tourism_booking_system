@@ -119,7 +119,7 @@ class AttractionimagesControllerTest extends TestCase
         $attractions = Attractions::factory()->create();
 
         $data = [
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'attractions_id' => $attractions->id,
         ];
 

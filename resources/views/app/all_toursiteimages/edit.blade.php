@@ -14,6 +14,7 @@
             <x-form
                 method="PUT"
                 action="{{ route('all-toursiteimages.update', $toursiteimages) }}"
+                has-files
                 class="mt-4"
             >
                 @include('app.all_toursiteimages.form-inputs')

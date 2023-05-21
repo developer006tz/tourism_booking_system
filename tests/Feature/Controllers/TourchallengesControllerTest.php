@@ -118,7 +118,7 @@ class TourchallengesControllerTest extends TestCase
 
         $data = [
             'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'user_id' => $user->id,
         ];
 

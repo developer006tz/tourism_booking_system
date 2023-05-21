@@ -21,6 +21,8 @@ class Transportation extends Model
 
     protected $searchableFields = ['*'];
 
+    protected $table = 'transportations';
+
     public function toursite()
     {
         return $this->belongsTo(Toursite::class);

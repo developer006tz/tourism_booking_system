@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Toursiteimages;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ToursiteimagesStoreRequest;
 use App\Http\Requests\ToursiteimagesUpdateRequest;
 
@@ -50,12 +51,11 @@ class ToursiteimagesController extends Controller
     public function store(ToursiteimagesStoreRequest $request): RedirectResponse
     {
         $this->authorize('create', Toursiteimages::class);
-
+        dd($request->all());
         $validated = $request->validated();
-        if ($request->hasFile('url')) {
-            $validated['url'] = $request->file('url')->store('public');
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('public');
         }
-        
 
         $toursiteimages = Toursiteimages::create($validated);
 
@@ -99,12 +99,12 @@ class ToursiteimagesController extends Controller
         $this->authorize('update', $toursiteimages);
 
         $validated = $request->validated();
-        if ($request->hasFile('url')) {
-            if ($toursiteimages->url) {
-                Storage::delete($toursiteimages->url);
+        if ($request->hasFile('image')) {
+            if ($toursiteimages->image) {
+                Storage::delete($toursiteimages->image);
             }
 
-            $validated['url'] = $request->file('url')->store('public');
+            $validated['image'] = $request->file('image')->store('public');
         }
 
         $toursiteimages->update($validated);
@@ -122,6 +122,10 @@ class ToursiteimagesController extends Controller
         Toursiteimages $toursiteimages
     ): RedirectResponse {
         $this->authorize('delete', $toursiteimages);
+
+        if ($toursiteimages->image) {
+            Storage::delete($toursiteimages->image);
+        }
 
         $toursiteimages->delete();
 

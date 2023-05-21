@@ -13,7 +13,7 @@
 
     <x-inputs.group class="col-sm-12">
         <div
-            x-data="imageViewer('{{ $editing && $toursiteimages->url ? \Storage::url($toursiteimages->url) : '' }}')"
+            x-data="imageViewer('{{ $editing && $toursiteimages->image ? \Storage::url($toursiteimages->image) : '' }}')"
         >
             <x-inputs.partials.label
                 name="image"
@@ -41,13 +41,13 @@
             <div class="mt-2">
                 <input
                     type="file"
-                    name="url"
+                    name="image"
                     id="image"
                     @change="fileChosen"
                 />
             </div>
 
-            @error('url') @include('components.inputs.partials.error')
+            @error('image') @include('components.inputs.partials.error')
             @enderror
         </div>
     </x-inputs.group>

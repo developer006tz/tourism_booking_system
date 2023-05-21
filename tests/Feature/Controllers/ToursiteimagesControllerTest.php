@@ -119,8 +119,7 @@ class ToursiteimagesControllerTest extends TestCase
         $toursite = Toursite::factory()->create();
 
         $data = [
-            'url' => $this->faker->url(),
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'toursite_id' => $toursite->id,
         ];
 

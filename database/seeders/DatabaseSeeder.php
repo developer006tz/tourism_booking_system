@@ -19,19 +19,17 @@ class DatabaseSeeder extends Seeder
                 'password' => \Hash::make('admin'),
             ]);
         $this->call(PermissionsSeeder::class);
+
+        $this->call(AccomodationimagesSeeder::class);
+        $this->call(AccomodationsSeeder::class);
+        $this->call(AttractionimagesSeeder::class);
+        $this->call(AttractionsSeeder::class);
         $this->call(CountrySeeder::class);
-        $this->call(UserSeeder::class);
+        $this->call(TourchallengesSeeder::class);
+        $this->call(TourguideagentSeeder::class);
         $this->call(ToursiteSeeder::class);
         $this->call(ToursiteimagesSeeder::class);
-        $this->call(TourchallengesSeeder::class);
-        $this->call(AttractionsSeeder::class);
-        $this->call(AttractionimagesSeeder::class);
-        $this->call(AccomodationsSeeder::class);
-        $this->call(AccomodationimagesSeeder::class);
         $this->call(TransportationSeeder::class);
-        $this->call(TourguideagentSeeder::class);
-        
-        
-       
+        $this->call(UserSeeder::class);
     }
 }

@@ -66,7 +66,7 @@ class TransportationControllerTest extends TestCase
 
         $response = $this->post(route('all-transportation.store'), $data);
 
-        $this->assertDatabaseHas('transportation', $data);
+        $this->assertDatabaseHas('transportations', $data);
 
         $transportation = Transportation::latest('id')->first();
 
@@ -132,7 +132,7 @@ class TransportationControllerTest extends TestCase
 
         $data['id'] = $transportation->id;
 
-        $this->assertDatabaseHas('transportation', $data);
+        $this->assertDatabaseHas('transportations', $data);
 
         $response->assertRedirect(
             route('all-transportation.edit', $transportation)
