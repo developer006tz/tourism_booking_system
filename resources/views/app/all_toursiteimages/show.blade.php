@@ -22,7 +22,7 @@
                 <div class="mb-4">
                     <h5>@lang('crud.all_toursiteimages.inputs.image')</h5>
                     <x-partials.thumbnail
-                        src="{{ $toursiteimages->image ? \Storage::url($toursiteimages->image) : '' }}"
+                        src="{{ $toursiteimages->image ? url(\Storage::url($toursiteimages->image)) : '' }}"
                         size="150"
                     />
                 </div>

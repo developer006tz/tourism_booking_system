@@ -39,7 +39,7 @@
                 <div class="mb-4">
                     <h5>@lang('crud.all_transportation.inputs.image')</h5>
                     <x-partials.thumbnail
-                        src="{{ $transportation->image ? \Storage::url($transportation->image) : '' }}"
+                        src="{{ $transportation->image ? url(\Storage::url($transportation->image)) : '' }}"
                         size="150"
                     />
                 </div>

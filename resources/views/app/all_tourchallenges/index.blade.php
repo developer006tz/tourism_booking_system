@@ -77,7 +77,7 @@
                             <td>{{ $tourchallenges->description ?? '-' }}</td>
                             <td>
                                 <x-partials.thumbnail
-                                    src="{{ $tourchallenges->image ? \Storage::url($tourchallenges->image) : '' }}"
+                                    src="{{ $tourchallenges->image ? url(\Storage::url($tourchallenges->image)) : '' }}"
                                 />
                             </td>
                             <td class="text-center" style="width: 134px;">

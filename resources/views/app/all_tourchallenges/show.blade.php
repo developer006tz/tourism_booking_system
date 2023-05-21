@@ -30,7 +30,7 @@
                 <div class="mb-4">
                     <h5>@lang('crud.all_tourchallenges.inputs.image')</h5>
                     <x-partials.thumbnail
-                        src="{{ $tourchallenges->image ? \Storage::url($tourchallenges->image) : '' }}"
+                        src="{{ $tourchallenges->image ? url(\Storage::url($tourchallenges->image)) : '' }}"
                         size="150"
                     />
                 </div>

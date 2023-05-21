@@ -10,6 +10,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ToursiteimagesStoreRequest;
 use App\Http\Requests\ToursiteimagesUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class ToursiteimagesController extends Controller
 {
@@ -51,16 +54,25 @@ class ToursiteimagesController extends Controller
     public function store(ToursiteimagesStoreRequest $request): RedirectResponse
     {
         $this->authorize('create', Toursiteimages::class);
-        dd($request->all());
+        // dd($request->all());
+        $validated = $request->validated();
+        //fetch toursite name by toursite id
+        $toursite = Toursite::find($request->toursite_id);
         $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('public');
+            $image = $request->file('image');
+            $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(408, 272);
+            $image_resize->encode('jpg', 75);
+            $image_resize->save(storage_path('app/public/' . $filename));
+            $validated['image'] = $filename;
         }
 
         $toursiteimages = Toursiteimages::create($validated);
 
         return redirect()
-            ->route('all-toursiteimages.edit', $toursiteimages)
+            ->route('all-toursiteimages.index', $toursiteimages)
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -100,13 +112,22 @@ class ToursiteimagesController extends Controller
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $toursite = Toursite::find($request->toursite_id);
+            $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize-> resize(408, 272);
+            $image_resize->encode('jpg', 75);
+            $image_resize->save(storage_path('app/public/' . $filename));
+
             if ($toursiteimages->image) {
-                Storage::delete($toursiteimages->image);
+                if (file_exists(storage_path('app/public/' . $toursiteimages->image))) {
+                    unlink(storage_path('app/public/' . $toursiteimages->image));
+                }
             }
 
-            $validated['image'] = $request->file('image')->store('public');
+            $validated['image'] = $filename;
         }
-
         $toursiteimages->update($validated);
 
         return redirect()

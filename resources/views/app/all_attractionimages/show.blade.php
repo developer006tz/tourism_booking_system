@@ -24,7 +24,7 @@
                 <div class="mb-4">
                     <h5>@lang('crud.all_attractionimages.inputs.image')</h5>
                     <x-partials.thumbnail
-                        src="{{ $attractionimages->image ? \Storage::url($attractionimages->image) : '' }}"
+                        src="{{ $attractionimages->image ? url(\Storage::url($attractionimages->image)) : '' }}"
                         size="150"
                     />
                 </div>

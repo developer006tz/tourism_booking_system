@@ -73,7 +73,7 @@
                             </td>
                             <td>
                                 <x-partials.thumbnail
-                                    src="{{ $attractionimages->image ? \Storage::url($attractionimages->image) : '' }}"
+                                    src="{{ $attractionimages->image ? url(\Storage::url($attractionimages->image)) : '' }}"
                                 />
                             </td>
                             <td>{{ $attractionimages->description ?? '-' }}</td>

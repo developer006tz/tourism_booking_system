@@ -49,7 +49,7 @@
 
     <x-inputs.group class="col-sm-12">
         <div
-            x-data="imageViewer('{{ $editing && $transportation->image ? \Storage::url($transportation->image) : '' }}')"
+            x-data="imageViewer('{{ $editing && $transportation->image ? url(\Storage::url($transportation->image)) : '' }}')"
         >
             <x-inputs.partials.label
                 name="image"

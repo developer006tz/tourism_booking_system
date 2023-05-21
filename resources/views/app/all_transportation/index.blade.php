@@ -84,7 +84,7 @@
                             </td>
                             <td>
                                 <x-partials.thumbnail
-                                    src="{{ $transportation->image ? \Storage::url($transportation->image) : '' }}"
+                                    src="{{ $transportation->image ? url(\Storage::url($transportation->image)) : '' }}"
                                 />
                             </td>
                             <td class="text-center" style="width: 134px;">

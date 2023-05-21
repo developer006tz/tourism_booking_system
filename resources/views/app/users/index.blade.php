@@ -73,7 +73,7 @@
                             <td>{{ optional($user->country)->name ?? '-' }}</td>
                             <td>
                                 <x-partials.thumbnail
-                                    src="{{ $user->image ? \Storage::url($user->image) : '' }}"
+                                    src="{{ $user->image ? url(\Storage::url($user->image)) : '' }}"
                                 />
                             </td>
                             <td class="text-center" style="width: 134px;">

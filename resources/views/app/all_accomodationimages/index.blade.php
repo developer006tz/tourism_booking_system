@@ -77,7 +77,7 @@
                             <td>{{ $accomodationimages->type ?? '-' }}</td>
                             <td>
                                 <x-partials.thumbnail
-                                    src="{{ $accomodationimages->image ? \Storage::url($accomodationimages->image) : '' }}"
+                                    src="{{ $accomodationimages->image ? url(\Storage::url($accomodationimages->image)) : '' }}"
                                 />
                             </td>
                             <td>

@@ -24,7 +24,7 @@
 
     <x-inputs.group class="col-sm-12">
         <div
-            x-data="imageViewer('{{ $editing && $accomodationimages->image ? \Storage::url($accomodationimages->image) : '' }}')"
+            x-data="imageViewer('{{ $editing && $accomodationimages->image ? url(\Storage::url($accomodationimages->image)) : '' }}')"
         >
             <x-inputs.partials.label
                 name="image"
