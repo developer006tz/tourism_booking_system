@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\AttractionsStoreRequest;
 use App\Http\Requests\AttractionsUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class AttractionsController extends Controller
 {

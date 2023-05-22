@@ -10,6 +10,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AccomodationimagesStoreRequest;
 use App\Http\Requests\AccomodationimagesUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Toursite;
 
 class AccomodationimagesController extends Controller
 {
@@ -58,9 +62,15 @@ class AccomodationimagesController extends Controller
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('public');
+            $image = $request->file('image');
+            $accomodation = Accomodations::find($request->accomodations_id);
+            $filename = str_replace(' ', '-', strtolower($accomodation->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $accomodation->name), 0, 25)) . '.jpg';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(408, 272);
+            $image_resize->encode('jpg', 75);
+            $image_resize->save(storage_path('app/public/' . $filename));
+            $validated['image'] = $filename;
         }
-
         $accomodationimages = Accomodationimages::create($validated);
 
         return redirect()

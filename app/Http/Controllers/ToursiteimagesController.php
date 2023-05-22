@@ -54,13 +54,12 @@ class ToursiteimagesController extends Controller
     public function store(ToursiteimagesStoreRequest $request): RedirectResponse
     {
         $this->authorize('create', Toursiteimages::class);
-        // dd($request->all());
         $validated = $request->validated();
-        //fetch toursite name by toursite id
-        $toursite = Toursite::find($request->toursite_id);
+      
         $validated = $request->validated();
         if ($request->hasFile('image')) {
             $image = $request->file('image');
+            $toursite = Toursite::find($request->toursite_id);
             $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->resize(408, 272);

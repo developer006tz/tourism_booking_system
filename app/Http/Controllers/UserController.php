@@ -58,7 +58,13 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('public');
+            $image = $request->file('image');
+            $filename = str_replace(' ', '-', strtolower($request->email)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->phone ?? $request->name), 0, 25)) . '.jpg';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(400, 400);
+            $image_resize->encode('jpg', 75);
+            $image_resize->save(storage_path('app/public/' . $filename));
+            $validated['image'] = $filename;
         }
 
         $user = User::create($validated);

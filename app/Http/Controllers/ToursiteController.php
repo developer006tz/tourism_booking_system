@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\ToursiteStoreRequest;
 use App\Http\Requests\ToursiteUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class ToursiteController extends Controller
 {

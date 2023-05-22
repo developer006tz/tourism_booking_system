@@ -10,6 +10,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\TransportationStoreRequest;
 use App\Http\Requests\TransportationUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class TransportationController extends Controller
 {
@@ -100,11 +103,21 @@ class TransportationController extends Controller
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $toursite = Toursite::find($request->toursite_id);
+            $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->type ?? $toursite->name), 0, 25)) . '.jpg';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(408, 272);
+            $image_resize->encode('jpg', 75);
+            $image_resize->save(storage_path('app/public/' . $filename));
+
             if ($transportation->image) {
-                Storage::delete($transportation->image);
+                if (file_exists(storage_path('app/public/' . $transportation->image))) {
+                    unlink(storage_path('app/public/' . $transportation->image));
+                }
             }
 
-            $validated['image'] = $request->file('image')->store('public');
+            $validated['image'] = $filename;
         }
 
         $transportation->update($validated);

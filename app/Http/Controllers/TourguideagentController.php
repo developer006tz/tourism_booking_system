@@ -10,6 +10,9 @@ use App\Models\Tourguideagent;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\TourguideagentStoreRequest;
 use App\Http\Requests\TourguideagentUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class TourguideagentController extends Controller
 {

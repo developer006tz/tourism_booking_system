@@ -1,72 +1,52 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        
-        <title>tour</title>
-        
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
-        <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
-        
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
-        {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
-        
-        <!-- Styles -->
-        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Tour admin</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset('admin/assets/img/favicon.png')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/all.min.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/css/feathericon.min.css')}}">
+	<link rel="stylehseet" href="{{asset('admin/https://cdn.oesmith.co.uk/morris-0.5.1.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/plugins/morris/morris.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
+    <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
         
         <!-- Icons -->
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-        
-        <!-- Small Ionicons Fixes for AdminLTE -->
-        <style>
-        html {
-            background-color: #f4f6f9;
-        }
-        
-        .nav-icon.icon:before {
-            width: 25px;
-        }
-        </style>
-
-        
-        <script type="module">
+ </head>
+<script type="module">
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
         </script>
         
         @livewireStyles
-    </head>
-    
-    <body class="sidebar-mini layout-fixed layout-navbar-fixed ">
-        <div id="app" class="wrapper">
-            <div class="main-header">
-                @include('layouts.nav')
-            </div>
-        
-            @include('layouts.sidebar')
-        
-            <main class="content-wrapper p-5">
-                @yield('content')
-            </main>
-        </div>
-
-        @stack('modals')
-        
-        @livewireScripts
-        
+<body>
+	<div class="main-wrapper">
+		<div class="header">
+		 @include('layouts.nav')
+		</div>
+		@include('layouts.sidebar')
+		<div class="page-wrapper">
+			@yield('content')
+		</div>
+	</div>
+    @stack('modals')
+       
+	{{-- <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
+	<script src="{{asset('admin/assets/js/jquery-3.5.1.min.js')}}"></script>
+	<script src="{{asset('admin/assets/js/popper.min.js')}}"></script>
+	<script src="{{asset('admin/assets/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('admin/assets/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
+	<script src="{{asset('admin/assets/plugins/raphael/raphael.min.js')}}"></script>
+	<script src="{{asset('admin/assets/plugins/morris/morris.min.js')}}"></script>
+	<script src="{{asset('admin/assets/js/chart.morris.js')}}"></script>
+	<script src="{{asset('admin/assets/js/script.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
-        
+        @livewireScripts
         @stack('scripts')
         
         <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
@@ -77,8 +57,7 @@
             notyf.success('{{ session('success') }}')
         </script> 
         @endif
-
-        <script>
+    <script>
             /* Simple Alpine Image Viewer */
             document.addEventListener('alpine:init', () => {
                 Alpine.data('imageViewer', (src = '') => {
@@ -106,5 +85,6 @@
                 })
             })
         </script>
-    </body>
+</body>
+
 </html>

@@ -9,6 +9,10 @@ use App\Models\Accomodations;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\AccomodationsStoreRequest;
 use App\Http\Requests\AccomodationsUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
+
 
 class AccomodationsController extends Controller
 {

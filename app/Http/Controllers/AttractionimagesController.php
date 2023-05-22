@@ -10,6 +10,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AttractionimagesStoreRequest;
 use App\Http\Requests\AttractionimagesUpdateRequest;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Toursite;
 
 class AttractionimagesController extends Controller
 {
@@ -58,9 +62,15 @@ class AttractionimagesController extends Controller
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('public');
+            $image = $request->file('image');
+            $attraction = Attractions::find($request->attractions_id);
+            $filename = str_replace(' ', '-', strtolower($attraction->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $attraction->name), 0, 25)) . '.jpg';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(408, 272);
+            $image_resize->encode('jpg', 75);
+            $image_resize->save(storage_path('app/public/' . $filename));
+            $validated['image'] = $filename;
         }
-
         $attractionimages = Attractionimages::create($validated);
 
         return redirect()
