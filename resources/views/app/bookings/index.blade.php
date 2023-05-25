@@ -1,14 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content container-fluid">
-    <div class="searchbar mb-4">
+<div class="container">
+    <div class="searchbar mt-0 mb-4">
         <div class="row">
-            @include('components.search')
+            <div class="col-md-6">
+                <form>
+                    <div class="input-group">
+                        <input
+                            id="indexSearch"
+                            type="text"
+                            name="search"
+                            placeholder="{{ __('crud.common.search') }}"
+                            value="{{ $search ?? '' }}"
+                            class="form-control"
+                            autocomplete="off"
+                        />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="icon ion-md-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="col-md-6 text-right">
-                @can('create', App\Models\Accomodationimages::class)
+                @can('create', App\Models\Booking::class)
                 <a
-                    href="{{ route('all-accomodationimages.create') }}"
+                    href="{{ route('bookings.create') }}"
                     class="btn btn-primary"
                 >
                     <i class="icon ion-md-add"></i> @lang('crud.common.create')
@@ -21,9 +40,7 @@
     <div class="card">
         <div class="card-body">
             <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">
-                    @lang('crud.all_accomodationimages.index_title')
-                </h4>
+                <h4 class="card-title">@lang('crud.bookings.index_title')</h4>
             </div>
 
             <div class="table-responsive">
@@ -31,16 +48,16 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.all_accomodationimages.inputs.accomodations_id')
+                                @lang('crud.bookings.inputs.user_id')
                             </th>
                             <th class="text-left">
-                                @lang('crud.all_accomodationimages.inputs.type')
+                                @lang('crud.bookings.inputs.toursite_id')
                             </th>
                             <th class="text-left">
-                                @lang('crud.all_accomodationimages.inputs.image')
+                                @lang('crud.bookings.inputs.transportation_id')
                             </th>
                             <th class="text-left">
-                                @lang('crud.all_accomodationimages.inputs.description')
+                                @lang('crud.bookings.inputs.accomodations_id')
                             </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
@@ -48,21 +65,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($allAccomodationimages as $accomodationimages)
+                        @forelse($bookings as $booking)
                         <tr>
+                            <td>{{ optional($booking->user)->name ?? '-' }}</td>
                             <td>
-                                {{
-                                optional($accomodationimages->accomodations)->name
-                                ?? '-' }}
-                            </td>
-                            <td>{{ $accomodationimages->type ?? '-' }}</td>
-                            <td>
-                                <x-partials.thumbnail
-                                    src="{{ $accomodationimages->image ? url(\Storage::url($accomodationimages->image)) : '' }}"
-                                />
+                                {{ optional($booking->toursite)->name ?? '-' }}
                             </td>
                             <td>
-                                {{ $accomodationimages->description ?? '-' }}
+                                {{ optional($booking->transportation)->image ??
+                                '-' }}
+                            </td>
+                            <td>
+                                {{ optional($booking->accomodations)->name ??
+                                '-' }}
                             </td>
                             <td class="text-center" style="width: 134px;">
                                 <div
@@ -70,9 +85,9 @@
                                     aria-label="Row Actions"
                                     class="btn-group"
                                 >
-                                    @can('update', $accomodationimages)
+                                    @can('update', $booking)
                                     <a
-                                        href="{{ route('all-accomodationimages.edit', $accomodationimages) }}"
+                                        href="{{ route('bookings.edit', $booking) }}"
                                     >
                                         <button
                                             type="button"
@@ -81,9 +96,9 @@
                                             <i class="icon ion-md-create"></i>
                                         </button>
                                     </a>
-                                    @endcan @can('view', $accomodationimages)
+                                    @endcan @can('view', $booking)
                                     <a
-                                        href="{{ route('all-accomodationimages.show', $accomodationimages) }}"
+                                        href="{{ route('bookings.show', $booking) }}"
                                     >
                                         <button
                                             type="button"
@@ -92,9 +107,9 @@
                                             <i class="icon ion-md-eye"></i>
                                         </button>
                                     </a>
-                                    @endcan @can('delete', $accomodationimages)
+                                    @endcan @can('delete', $booking)
                                     <form
-                                        action="{{ route('all-accomodationimages.destroy', $accomodationimages) }}"
+                                        action="{{ route('bookings.destroy', $booking) }}"
                                         method="POST"
                                         onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
                                     >
@@ -120,9 +135,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5">
-                                {!! $allAccomodationimages->render() !!}
-                            </td>
+                            <td colspan="5">{!! $bookings->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

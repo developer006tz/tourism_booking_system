@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ToursiteController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AttractionsController;
@@ -247,4 +248,6 @@ Route::prefix('/')
             ToursiteimagesController::class,
             'destroy',
         ])->name('all-toursiteimages.destroy');
+
+        Route::resource('bookings', BookingController::class);
     });

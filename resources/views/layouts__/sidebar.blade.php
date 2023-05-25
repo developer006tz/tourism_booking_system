@@ -120,6 +120,14 @@
                                 </a>
                             </li>
                             @endcan
+                            @can('view-any', App\Models\Booking::class)
+                            <li class="nav-item">
+                                <a href="{{ route('bookings.index') }}" class="nav-link">
+                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                    <p>Bookings</p>
+                                </a>
+                            </li>
+                            @endcan
                     </ul>
                 </li>
 

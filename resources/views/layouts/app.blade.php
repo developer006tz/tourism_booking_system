@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 	<title>Tour admin</title>
-	<link rel="shortcut icon" type="image/x-icon" href="{{asset('admin/assets/img/favicon.png')}}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset('logo.jpg')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/all.min.css')}}">
@@ -13,6 +13,7 @@
 	<link rel="stylehseet" href="{{asset('admin/https://cdn.oesmith.co.uk/morris-0.5.1.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/morris/morris.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/css/clearfix.css')}}">
     <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
         

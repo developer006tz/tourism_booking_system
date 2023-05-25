@@ -6,30 +6,37 @@ use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Transportation extends Model
+class Booking extends Model
 {
     use HasFactory;
     use Searchable;
 
     protected $fillable = [
+        'user_id',
         'toursite_id',
-        'type',
-        'price',
-        'distance_covered_in_km',
-        'image',
+        'transportation_id',
+        'accomodations_id',
     ];
 
     protected $searchableFields = ['*'];
 
-    protected $table = 'transportations';
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function toursite()
     {
         return $this->belongsTo(Toursite::class);
     }
 
-    public function bookings()
+    public function transportation()
     {
-        return $this->hasMany(Booking::class);
+        return $this->belongsTo(Transportation::class);
+    }
+
+    public function accomodations()
+    {
+        return $this->belongsTo(Accomodations::class);
     }
 }

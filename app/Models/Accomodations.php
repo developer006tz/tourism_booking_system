@@ -37,4 +37,9 @@ class Accomodations extends Model
     {
         return $this->hasMany(Accomodationimages::class);
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

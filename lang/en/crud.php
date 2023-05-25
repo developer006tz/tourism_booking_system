@@ -206,6 +206,21 @@ return [
         ],
     ],
 
+    'bookings' => [
+        'name' => 'Bookings',
+        'index_title' => 'Bookings List',
+        'new_title' => 'New Booking',
+        'create_title' => 'Create Booking',
+        'edit_title' => 'Edit Booking',
+        'show_title' => 'Show Booking',
+        'inputs' => [
+            'user_id' => 'User',
+            'toursite_id' => 'Toursite',
+            'transportation_id' => 'Transportation',
+            'accomodations_id' => 'Accomodations',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',

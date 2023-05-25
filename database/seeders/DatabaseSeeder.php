@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AccomodationsSeeder::class);
         $this->call(AttractionimagesSeeder::class);
         $this->call(AttractionsSeeder::class);
+        $this->call(BookingSeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(TourchallengesSeeder::class);
         $this->call(TourguideagentSeeder::class);

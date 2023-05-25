@@ -39,6 +39,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update allattractions']);
         Permission::create(['name' => 'delete allattractions']);
 
+        Permission::create(['name' => 'list bookings']);
+        Permission::create(['name' => 'view bookings']);
+        Permission::create(['name' => 'create bookings']);
+        Permission::create(['name' => 'update bookings']);
+        Permission::create(['name' => 'delete bookings']);
+
         Permission::create(['name' => 'list countries']);
         Permission::create(['name' => 'view countries']);
         Permission::create(['name' => 'create countries']);
