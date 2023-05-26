@@ -3,16 +3,16 @@
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
 						@auth
-						<li class="active"> <a href="{{ route('home') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li class="{{ getActive('home') }}"> <a href="{{ route('home') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						@can('view-any', App\Models\Toursite::class)
 						<li class="submenu"> <a href="#"><i class="fa fa-map"></i> <span> Toursites </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="{{ route('toursites.index') }}"> view </a></li>
-								<li><a href="{{ route('toursites.create') }}"> add </a></li>
+							<ul class="submenu_class " style="display: none;">
+								<li class="{{ activeMenu('toursites.index') }}" ><a href="{{ route('toursites.index') }}"> view </a></li>
+								<li  class="{{ activeMenu('toursites.create') }}"><a href="{{ route('toursites.create') }}"> add </a></li>
 								@can('view-any', App\Models\Toursiteimages::class)
-								<li><a href="{{ route('all-toursiteimages.index') }}"> add photo </a></li>
-								<li><a href="{{ route('all-toursiteimages.index') }}"> view photos</a></li>
+								<li  class="{{ activeMenu('all-toursiteimages.create') }}"><a href="{{ route('all-toursiteimages.create') }}"> add photo </a></li>
+								<li class="{{ activeMenu('all-toursiteimages.index') }}" ><a href="{{ route('all-toursiteimages.index') }}"> view photos</a></li>
 							
 						@endcan
 							</ul>
@@ -20,13 +20,13 @@
 						@endcan
 
 						 @can('view-any', App\Models\Attractions::class)
-						<li class="submenu"> <a href="#"><i class="fas fa-map-marked-alt"></i> <span> Attractions </span> <span class="menu-arrow"></span></a>
+						<li class="submenu"> <a href="#" class="{{ getActive('all-attractions','subdrop') }}"><i class="fas fa-map-marked-alt"></i> <span> Attractions </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="{{ route('toursites.index') }}"> view </a></li>
-								<li><a href="{{ route('toursites.create') }}"> add </a></li>
+								<li><a class="{{ getActive('all-attractions.index') }}" href="{{ route('all-attractions.index') }}"> view </a></li>
+								<li><a class="{{ getActive('all-attractions.create') }}" href="{{ route('all-attractions.index') }}"> add </a></li>
 								@can('view-any', App\Models\Attractionimages::class)
-								<li><a href="{{ route('all-attractionimages.create') }}"> add photo </a></li>
-								<li><a href="{{ route('all-attractionimages.index') }}"> view photos</a></li>
+								<li><a class="{{ getActive('all-attractionimages.create') }}" href="{{ route('all-attractionimages.create') }}"> add photo </a></li>
+								<li><a class="{{ getActive('all-attractionimages.index') }}" href="{{ route('all-attractionimages.index') }}"> view photos</a></li>
 							
 						@endcan
 							</ul>

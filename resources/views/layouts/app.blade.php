@@ -7,7 +7,7 @@
 	<title>Tour admin</title>
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('logo.jpg')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+	{{-- <link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}"> --}}
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/fontawesome/css/all.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/css/feathericon.min.css')}}">
 	<link rel="stylehseet" href="{{asset('admin/https://cdn.oesmith.co.uk/morris-0.5.1.css')}}">
