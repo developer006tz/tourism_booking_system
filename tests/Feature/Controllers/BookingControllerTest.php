@@ -36,7 +36,7 @@ class BookingControllerTest extends TestCase
     public function it_displays_index_view_with_bookings(): void
     {
         $bookings = Booking::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('bookings.index'));

@@ -24,7 +24,7 @@ class AttractionsFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'distance' => $this->faker->randomFloat(2, 0, 9999),
             'toursite_id' => \App\Models\Toursite::factory(),
         ];

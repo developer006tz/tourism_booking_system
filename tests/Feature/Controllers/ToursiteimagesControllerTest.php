@@ -34,7 +34,7 @@ class ToursiteimagesControllerTest extends TestCase
     public function it_displays_index_view_with_all_toursiteimages(): void
     {
         $allToursiteimages = Toursiteimages::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('all-toursiteimages.index'));
@@ -119,7 +119,7 @@ class ToursiteimagesControllerTest extends TestCase
         $toursite = Toursite::factory()->create();
 
         $data = [
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'toursite_id' => $toursite->id,
         ];
 

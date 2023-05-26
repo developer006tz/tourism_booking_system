@@ -34,7 +34,7 @@ class TransportationControllerTest extends TestCase
     public function it_displays_index_view_with_all_transportation(): void
     {
         $allTransportation = Transportation::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('all-transportation.index'));

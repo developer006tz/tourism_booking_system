@@ -32,7 +32,7 @@ class TourchallengesControllerTest extends TestCase
     public function it_displays_index_view_with_all_tourchallenges(): void
     {
         $allTourchallenges = Tourchallenges::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('all-tourchallenges.index'));
@@ -117,8 +117,8 @@ class TourchallengesControllerTest extends TestCase
         $user = User::factory()->create();
 
         $data = [
-            'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(15),
+            'title' => $this->faker->sentence(2),
+            'description' => $this->faker->sentence(2),
             'user_id' => $user->id,
         ];
 

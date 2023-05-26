@@ -37,6 +37,10 @@
                             <th class="text-left">
                                 @lang('crud.countries.inputs.iso')
                             </th>
+
+                             <th class="text-left">
+                                @lang('crud.countries.inputs.iso3')
+                            </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
                             </th>
@@ -48,6 +52,7 @@
                             <td>{{ $country->name ?? '-' }}</td>
                             <td>{{ $country->nicename ?? '-' }}</td>
                             <td>{{ $country->iso ?? '-' }}</td>
+                            <td>{{ $country->iso3 ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

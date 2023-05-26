@@ -85,6 +85,7 @@ return [
             'name' => 'Name',
             'nicename' => 'Nicename',
             'iso' => 'Iso',
+            'iso3' => 'Iso3',
         ],
     ],
 

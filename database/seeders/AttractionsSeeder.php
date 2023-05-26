@@ -13,7 +13,7 @@ class AttractionsSeeder extends Seeder
     public function run(): void
     {
         Attractions::factory()
-            ->count(5)
+            ->count(1)
             ->create();
     }
 }

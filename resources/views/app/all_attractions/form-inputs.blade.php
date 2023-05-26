@@ -2,7 +2,7 @@
 
 <div class="row">
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="toursite_id" label="Toursite" required>
+        <x-inputs.select  class="select2" name="toursite_id" label="Toursite" required>
             @php $selected = old('toursite_id', ($editing ? $attractions->toursite_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Toursite</option>
             @foreach($toursites as $value => $label)

@@ -13,7 +13,7 @@ class TourchallengesSeeder extends Seeder
     public function run(): void
     {
         Tourchallenges::factory()
-            ->count(5)
+            ->count(1)
             ->create();
     }
 }

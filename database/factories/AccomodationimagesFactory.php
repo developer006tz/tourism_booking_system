@@ -24,7 +24,7 @@ class AccomodationimagesFactory extends Factory
     {
         return [
             'type' => 'surroundings',
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'accomodations_id' => \App\Models\Accomodations::factory(),
         ];
     }

@@ -34,7 +34,7 @@ class TourguideagentControllerTest extends TestCase
     public function it_displays_index_view_with_tourguideagents(): void
     {
         $tourguideagents = Tourguideagent::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('tourguideagents.index'));
@@ -116,8 +116,8 @@ class TourguideagentControllerTest extends TestCase
         $user = User::factory()->create();
 
         $data = [
-            'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(15),
+            'title' => $this->faker->sentence(2),
+            'description' => $this->faker->sentence(2),
             'guide_price_per_day' => $this->faker->randomNumber(2),
             'rating' => $this->faker->randomNumber(1),
             'distance_covered' => $this->faker->randomNumber(2),

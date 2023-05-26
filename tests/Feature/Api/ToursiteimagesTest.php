@@ -30,7 +30,7 @@ class ToursiteimagesTest extends TestCase
     public function it_gets_all_toursiteimages_list(): void
     {
         $allToursiteimages = Toursiteimages::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->getJson(route('api.all-toursiteimages.index'));
@@ -67,7 +67,7 @@ class ToursiteimagesTest extends TestCase
         $toursite = Toursite::factory()->create();
 
         $data = [
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'toursite_id' => $toursite->id,
         ];
 

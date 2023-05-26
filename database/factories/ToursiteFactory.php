@@ -24,17 +24,17 @@ class ToursiteFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'other_name' => $this->faker->text(255),
-            'description' => $this->faker->sentence(15),
-            'accomodation' => $this->faker->text(),
+            'other_name' => $this->faker->text(5),
+            'description' => $this->faker->sentence(2),
+            'accomodation' => $this->faker->sentence(3),
             'region' => $this->faker->name(),
-            'district' => $this->faker->text(255),
+            'district' => $this->faker->text(5),
             'distance' => $this->faker->randomFloat(2, 0, 9999),
-            'attractions' => $this->faker->text(),
+            'attractions' => $this->faker->sentence(3),
             'local_price' => $this->faker->randomNumber(2),
             'international_price' => $this->faker->randomNumber(2),
-            'time_of_visit' => $this->faker->text(),
-            'country_id' => \App\Models\Country::factory(),
+            'time_of_visit' => $this->faker->sentence(2),
+            'country_id' => 2,
         ];
     }
 }

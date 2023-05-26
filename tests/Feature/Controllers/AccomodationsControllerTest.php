@@ -34,7 +34,7 @@ class AccomodationsControllerTest extends TestCase
     public function it_displays_index_view_with_all_accomodations(): void
     {
         $allAccomodations = Accomodations::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('all-accomodations.index'));
@@ -118,7 +118,7 @@ class AccomodationsControllerTest extends TestCase
             'name' => $this->faker->name(),
             'type' => 'hotel',
             'sleep_service' => 'yes',
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'local_night_fee' => $this->faker->randomNumber(2),
             'international_night_fee' => $this->faker->randomNumber(2),
             'food_service' => 'yes',

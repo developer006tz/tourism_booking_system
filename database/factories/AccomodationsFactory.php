@@ -26,7 +26,7 @@ class AccomodationsFactory extends Factory
             'name' => $this->faker->name(),
             'type' => 'hotel',
             'sleep_service' => 'yes',
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'local_night_fee' => $this->faker->randomNumber(2),
             'international_night_fee' => $this->faker->randomNumber(2),
             'food_service' => 'yes',

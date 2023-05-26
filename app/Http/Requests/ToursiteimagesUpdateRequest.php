@@ -21,7 +21,8 @@ class ToursiteimagesUpdateRequest extends FormRequest
     {
         return [
             'toursite_id' => ['required', 'exists:toursites,id'],
-            'image' => ['nullable', 'image', 'max:1024'],
+            'image' => ['nullable', 'array', 'max:1'],
+            'image.*' => ['image', 'max:3024'],
             'description' => ['nullable', 'max:255', 'string'],
         ];
     }

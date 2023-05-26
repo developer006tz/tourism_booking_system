@@ -24,6 +24,10 @@
                     <h5>@lang('crud.countries.inputs.iso')</h5>
                     <span>{{ $country->iso ?? '-' }}</span>
                 </div>
+                <div class="mb-4">
+                    <h5>@lang('crud.countries.inputs.iso3')</h5>
+                    <span>{{ $country->iso3 ?? '-' }}</span>
+                </div>
             </div>
 
             <div class="mt-4">

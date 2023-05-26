@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{{asset('admin/assets/plugins/morris/morris.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/css/clearfix.css')}}">
+	<link rel="stylesheet" href="{{asset('admin/assets/css/select2.min.css')}}">
     <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
         
@@ -46,6 +47,7 @@
 	<script src="{{asset('admin/assets/plugins/morris/morris.min.js')}}"></script>
 	<script src="{{asset('admin/assets/js/chart.morris.js')}}"></script>
 	<script src="{{asset('admin/assets/js/script.js')}}"></script>
+	<script src="{{asset('admin/assets/js/select2.min.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
         @livewireScripts
         @stack('scripts')
@@ -59,33 +61,40 @@
         </script> 
         @endif
     <script>
-            /* Simple Alpine Image Viewer */
-            document.addEventListener('alpine:init', () => {
-                Alpine.data('imageViewer', (src = '') => {
-                    return {
-                        imageUrl: src,
-        
-                        refreshUrl() {
-                            this.imageUrl = this.$el.getAttribute("image-url")
-                        },
-        
-                        fileChosen(event) {
-                            this.fileToDataUrl(event, src => this.imageUrl = src)
-                        },
-        
-                        fileToDataUrl(event, callback) {
-                            if (! event.target.files.length) return
-        
-                            let file = event.target.files[0],
-                                reader = new FileReader()
-        
-                            reader.readAsDataURL(file)
-                            reader.onload = e => callback(e.target.result)
-                        },
-                    }
-                })
-            })
-        </script>
+           /* Simple Alpine Image Viewer */
+document.addEventListener('alpine:init', () => {
+    Alpine.data('imageViewer', (src = '') => {
+        return {
+            imageUrls: src ? [src] : [],
+
+            refreshUrl() {
+                this.imageUrls = this.$el.getAttribute('image-url');
+            },
+
+            filesChosen(event) {
+                this.imageUrls = [];
+                const files = event.target.files;
+                for (let i = 0; i < files.length; i++) {
+                    const fileReader = new FileReader();
+                    fileReader.onload = (event) => {
+                        this.imageUrls.push(event.target.result);
+                    };
+                    fileReader.readAsDataURL(files[i]);
+                }
+            },
+        };
+    });
+});
+</script>
+
+<script>
+    //initialize select2
+    $(function () {
+        $('.select2').select2({
+            placeholder: 'Select a category'
+        });
+    });
+</script>
 </body>
 
 </html>

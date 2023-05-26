@@ -13,7 +13,7 @@ class ToursiteimagesSeeder extends Seeder
     public function run(): void
     {
         Toursiteimages::factory()
-            ->count(5)
+            ->count(1)
             ->create();
     }
 }

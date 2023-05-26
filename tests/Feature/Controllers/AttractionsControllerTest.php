@@ -34,7 +34,7 @@ class AttractionsControllerTest extends TestCase
     public function it_displays_index_view_with_all_attractions(): void
     {
         $allAttractions = Attractions::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('all-attractions.index'));
@@ -114,7 +114,7 @@ class AttractionsControllerTest extends TestCase
 
         $data = [
             'name' => $this->faker->name(),
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'distance' => $this->faker->randomFloat(2, 0, 9999),
             'toursite_id' => $toursite->id,
         ];

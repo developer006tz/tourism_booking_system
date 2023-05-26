@@ -23,8 +23,8 @@ class TourchallengesFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(15),
+            'title' => $this->faker->sentence(2),
+            'description' => $this->faker->sentence(2),
             'user_id' => \App\Models\User::factory(),
         ];
     }

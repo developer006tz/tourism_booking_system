@@ -55,25 +55,28 @@ class ToursiteimagesController extends Controller
     {
         $this->authorize('create', Toursiteimages::class);
         $validated = $request->validated();
-      
-        $validated = $request->validated();
+
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
             $toursite = Toursite::find($request->toursite_id);
-            $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->resize(408, 272);
-            $image_resize->encode('jpg', 75);
-            $image_resize->save(storage_path('app/public/' . $filename));
-            $validated['image'] = $filename;
+            foreach ($request->file('image') as $image) {
+                $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
+                $image_resize = Image::make($image->getRealPath());
+                $image_resize->resize(408, 272);
+                $image_resize->encode('jpg', 75);
+                $image_resize->save(storage_path('app/public/' . $filename));
+                Toursiteimages::create([
+                    'toursite_id' => $validated['toursite_id'],
+                    'image' => $filename,
+                    'description' => $validated['description'] ?? null,
+                ]);
+            }
         }
 
-        $toursiteimages = Toursiteimages::create($validated);
-
         return redirect()
-            ->route('all-toursiteimages.index', $toursiteimages)
+            ->route('all-toursiteimages.index')
             ->withSuccess(__('crud.common.created'));
     }
+
 
     /**
      * Display the specified resource.
@@ -111,7 +114,7 @@ class ToursiteimagesController extends Controller
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
+            $image = $request->file('image')[0];
             $toursite = Toursite::find($request->toursite_id);
             $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
             $image_resize = Image::make($image->getRealPath());

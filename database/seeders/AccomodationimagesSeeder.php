@@ -13,7 +13,7 @@ class AccomodationimagesSeeder extends Seeder
     public function run(): void
     {
         Accomodationimages::factory()
-            ->count(5)
+            ->count(1)
             ->create();
     }
 }

@@ -23,7 +23,7 @@ class ToursiteimagesFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'toursite_id' => \App\Models\Toursite::factory(),
         ];
     }

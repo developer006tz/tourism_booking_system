@@ -56,7 +56,7 @@ class ToursiteController extends Controller
         $toursite = Toursite::create($validated);
 
         return redirect()
-            ->route('toursites.edit', $toursite)
+            ->route('all-toursiteimages.create', $toursite)
             ->withSuccess(__('crud.common.created'));
     }
 

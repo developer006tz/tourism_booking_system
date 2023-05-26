@@ -2,7 +2,7 @@
 
 <div class="row">
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="toursite_id" label="Toursite">
+        <x-inputs.select  class="select2" name="toursite_id" label="Toursite">
             @php $selected = old('toursite_id', ($editing ? $tourguideagent->toursite_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Toursite</option>
             @foreach($toursites as $value => $label)
@@ -66,7 +66,7 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="user_id" label="User" required>
+        <x-inputs.select  class="select2" name="user_id" label="User" required>
             @php $selected = old('user_id', ($editing ? $tourguideagent->user_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
             @foreach($users as $value => $label)

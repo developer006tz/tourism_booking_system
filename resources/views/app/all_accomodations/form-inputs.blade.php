@@ -2,7 +2,7 @@
 
 <div class="row">
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="toursite_id" label="Toursite" required>
+        <x-inputs.select  class="select2" name="toursite_id" label="Toursite" required>
             @php $selected = old('toursite_id', ($editing ? $accomodations->toursite_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Toursite</option>
             @foreach($toursites as $value => $label)
@@ -23,7 +23,7 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="type" label="Type">
+        <x-inputs.select  class="select2" name="type" label="Type">
             @php $selected = old('type', ($editing ? $accomodations->type : 'hotel')) @endphp
             <option value="hotel" {{ $selected == 'hotel' ? 'selected' : '' }} >Hotel</option>
             <option value="restaurant" {{ $selected == 'restaurant' ? 'selected' : '' }} >Restaurant</option>
@@ -35,7 +35,7 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="sleep_service" label="Sleep Service">
+        <x-inputs.select  class="select2" name="sleep_service" label="Sleep Service">
             @php $selected = old('sleep_service', ($editing ? $accomodations->sleep_service : 'yes')) @endphp
             <option value="yes" {{ $selected == 'yes' ? 'selected' : '' }} >Yes</option>
             <option value="no" {{ $selected == 'no' ? 'selected' : '' }} >No</option>
@@ -75,7 +75,7 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="food_service" label="Food Service">
+        <x-inputs.select  class="select2" name="food_service" label="Food Service">
             @php $selected = old('food_service', ($editing ? $accomodations->food_service : 'yes')) @endphp
             <option value="yes" {{ $selected == 'yes' ? 'selected' : '' }} >Yes</option>
             <option value="no" {{ $selected == 'no' ? 'selected' : '' }} >No</option>
@@ -93,7 +93,7 @@
     </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="is_inside_park" label="Is Inside Park">
+        <x-inputs.select  class="select2" name="is_inside_park" label="Is Inside Park">
             @php $selected = old('is_inside_park', ($editing ? $accomodations->is_inside_park : 'yes')) @endphp
             <option value="yes" {{ $selected == 'yes' ? 'selected' : '' }} >Yes</option>
             <option value="no" {{ $selected == 'no' ? 'selected' : '' }} >No</option>

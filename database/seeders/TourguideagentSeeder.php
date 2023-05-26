@@ -13,7 +13,7 @@ class TourguideagentSeeder extends Seeder
     public function run(): void
     {
         Tourguideagent::factory()
-            ->count(5)
+            ->count(1)
             ->create();
     }
 }

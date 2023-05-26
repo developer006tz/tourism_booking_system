@@ -13,7 +13,7 @@ class TransportationSeeder extends Seeder
     public function run(): void
     {
         Transportation::factory()
-            ->count(5)
+            ->count(1)
             ->create();
     }
 }

@@ -11,7 +11,12 @@ class Country extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'nicename', 'iso'];
+    protected $fillable = [
+        'iso',
+        'name',
+        'nicename',
+        'iso3',
+    ];
 
     protected $searchableFields = ['*'];
 

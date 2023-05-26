@@ -23,8 +23,8 @@ class TourguideagentFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(10),
-            'description' => $this->faker->sentence(15),
+            'title' => $this->faker->sentence(2),
+            'description' => $this->faker->sentence(2),
             'guide_price_per_day' => $this->faker->randomNumber(2),
             'rating' => $this->faker->randomNumber(1),
             'distance_covered' => $this->faker->randomNumber(2),

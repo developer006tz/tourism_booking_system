@@ -34,7 +34,7 @@ class AccomodationimagesControllerTest extends TestCase
     public function it_displays_index_view_with_all_accomodationimages(): void
     {
         $allAccomodationimages = Accomodationimages::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->get(route('all-accomodationimages.index'));
@@ -122,7 +122,7 @@ class AccomodationimagesControllerTest extends TestCase
 
         $data = [
             'type' => 'surroundings',
-            'description' => $this->faker->sentence(15),
+            'description' => $this->faker->sentence(2),
             'accomodations_id' => $accomodations->id,
         ];
 

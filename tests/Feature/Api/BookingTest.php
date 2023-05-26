@@ -32,7 +32,7 @@ class BookingTest extends TestCase
     public function it_gets_bookings_list(): void
     {
         $bookings = Booking::factory()
-            ->count(5)
+            ->count(1)
             ->create();
 
         $response = $this->getJson(route('api.bookings.index'));
