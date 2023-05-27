@@ -21,7 +21,8 @@ class AttractionimagesStoreRequest extends FormRequest
     {
         return [
             'attractions_id' => ['required', 'exists:attractions,id'],
-            'image' => ['nullable', 'image', 'max:1024'],
+            'image' => ['nullable', 'array', 'max:10'],
+            'image.*' => ['image', 'max:3024'],
             'description' => ['nullable', 'max:255', 'string'],
         ];
     }

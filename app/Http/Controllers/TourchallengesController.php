@@ -58,7 +58,7 @@ class TourchallengesController extends Controller
 
         $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
+            $image = $request->file('image')[0];
             $user = User::find($request->user_id);
             $filename = str_replace(' ', '-', strtolower($user->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $user->name), 0, 25)) . '.jpg';
             $image_resize = Image::make($image->getRealPath());
@@ -115,7 +115,7 @@ class TourchallengesController extends Controller
                 Storage::delete($tourchallenges->image);
             }
 
-            $validated['image'] = $request->file('image')->store('public');
+            $validated['image'] = $request->file('image')[0]->store('public');
         }
 
         $tourchallenges->update($validated);

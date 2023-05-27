@@ -47,7 +47,7 @@ return [
 
     'all_attractions' => [
         'name' => 'All Attractions',
-        'index_title' => 'AllAttractions List',
+        'index_title' => 'All ttractions List',
         'new_title' => 'New Attractions',
         'create_title' => 'Create Attractions',
         'edit_title' => 'Edit Attractions',
@@ -61,12 +61,12 @@ return [
     ],
 
     'all_attractionimages' => [
-        'name' => 'All Attractionimages',
-        'index_title' => 'AllAttractionimages List',
-        'new_title' => 'New Attractionimages',
-        'create_title' => 'Create Attractionimages',
-        'edit_title' => 'Edit Attractionimages',
-        'show_title' => 'Show Attractionimages',
+        'name' => 'All Attraction images',
+        'index_title' => 'All ttractionimages List',
+        'new_title' => 'New Attraction images',
+        'create_title' => 'Create Attraction images',
+        'edit_title' => 'Edit Attraction images',
+        'show_title' => 'Show Attraction images',
         'inputs' => [
             'attractions_id' => 'Attractions',
             'image' => 'Image',
@@ -91,7 +91,7 @@ return [
 
     'all_accomodations' => [
         'name' => 'All Accomodations',
-        'index_title' => 'AllAccomodations List',
+        'index_title' => 'All ccomodations List',
         'new_title' => 'New Accomodations',
         'create_title' => 'Create Accomodations',
         'edit_title' => 'Edit Accomodations',
@@ -113,12 +113,12 @@ return [
     ],
 
     'all_accomodationimages' => [
-        'name' => 'All Accomodationimages',
-        'index_title' => 'AllAccomodationimages List',
-        'new_title' => 'New Accomodationimages',
-        'create_title' => 'Create Accomodationimages',
-        'edit_title' => 'Edit Accomodationimages',
-        'show_title' => 'Show Accomodationimages',
+        'name' => 'All Accomodation images',
+        'index_title' => 'All comodation images List',
+        'new_title' => 'New Accomodation images',
+        'create_title' => 'Create Accomodation images',
+        'edit_title' => 'Edit Accomodation images',
+        'show_title' => 'Show Accomodation images',
         'inputs' => [
             'accomodations_id' => 'Accomodations',
             'type' => 'Type',
@@ -194,12 +194,12 @@ return [
     ],
 
     'all_toursiteimages' => [
-        'name' => 'All Toursiteimages',
+        'name' => 'All Toursite images',
         'index_title' => 'AllToursiteimages List',
-        'new_title' => 'New Toursiteimages',
-        'create_title' => 'Create Toursiteimages',
-        'edit_title' => 'Edit Toursiteimages',
-        'show_title' => 'Show Toursiteimages',
+        'new_title' => 'New Toursite images',
+        'create_title' => 'Create Toursite images',
+        'edit_title' => 'Edit Toursite images',
+        'show_title' => 'Show Toursite images',
         'inputs' => [
             'toursite_id' => 'Toursite',
             'image' => 'Image',

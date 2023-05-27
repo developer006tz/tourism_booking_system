@@ -23,7 +23,8 @@ class TourchallengesUpdateRequest extends FormRequest
             'user_id' => ['required', 'exists:users,id'],
             'title' => ['required', 'max:255', 'string'],
             'description' => ['required', 'max:255', 'string'],
-            'image' => ['nullable', 'image', 'max:1024'],
+            'image' => ['nullable', 'array', 'max:1'],
+            'image.*' => ['image', 'max:3024'],
         ];
     }
 }

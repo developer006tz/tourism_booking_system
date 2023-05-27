@@ -57,9 +57,8 @@ class ToursiteimagesController extends Controller
         $validated = $request->validated();
 
         if ($request->hasFile('image')) {
-            $toursite = Toursite::find($request->toursite_id);
             foreach ($request->file('image') as $image) {
-                $filename = str_replace(' ', '-', strtolower($toursite->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $toursite->name), 0, 25)) . '.jpg';
+                $filename =  time().rand(999, 9999999) .'.jpg';
                 $image_resize = Image::make($image->getRealPath());
                 $image_resize->resize(408, 272);
                 $image_resize->encode('jpg', 75);

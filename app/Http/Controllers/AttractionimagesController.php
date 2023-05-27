@@ -61,20 +61,23 @@ class AttractionimagesController extends Controller
         $this->authorize('create', Attractionimages::class);
 
         $validated = $request->validated();
+       
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $attraction = Attractions::find($request->attractions_id);
-            $filename = str_replace(' ', '-', strtolower($attraction->name)) . '-' . time() . '-' . str_replace(' ', '-', substr(strtolower($request->description ?? $attraction->name), 0, 25)) . '.jpg';
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->resize(408, 272);
-            $image_resize->encode('jpg', 75);
-            $image_resize->save(storage_path('app/public/' . $filename));
-            $validated['image'] = $filename;
+            foreach ($request->file('image') as $image) {
+                $filename = time() . rand(999, 9999999) . '.jpg';
+                $image_resize = Image::make($image->getRealPath());
+                $image_resize->resize(408, 272);
+                $image_resize->encode('jpg', 75);
+                $image_resize->save(storage_path('app/public/' . $filename));
+                Attractionimages::create([
+                    'attractions_id' => $validated['attractions_id'],
+                    'image' => $filename,
+                    'description' => $validated['description'] ?? null,
+                ]);
+            }
         }
-        $attractionimages = Attractionimages::create($validated);
-
         return redirect()
-            ->route('all-attractionimages.edit', $attractionimages)
+            ->route('all-attractionimages.index')
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -125,7 +128,7 @@ class AttractionimagesController extends Controller
                 Storage::delete($attractionimages->image);
             }
 
-            $validated['image'] = $request->file('image')->store('public');
+            $validated['image'] = $request->file('image')[0]->store('public');
         }
 
         $attractionimages->update($validated);

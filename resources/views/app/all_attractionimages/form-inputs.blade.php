@@ -16,41 +16,46 @@
             x-data="imageViewer('{{ $editing && $attractionimages->image ? url(\Storage::url($attractionimages->image)) : '' }}')"
         >
             <x-inputs.partials.label
-                name="image"
-                label="Image"
-            ></x-inputs.partials.label
-            ><br />
+            name="image"
+            label="Image"
+        ></x-inputs.partials.label
+        ><br />
 
-            <!-- Show the image -->
-            <template x-if="imageUrl">
-                <img
-                    :src="imageUrl"
-                    class="object-cover rounded border border-gray-200"
-                    style="width: 100px; height: 100px;"
-                />
-            </template>
-
-            <!-- Show the gray box when image is not available -->
-            <template x-if="!imageUrl">
-                <div
-                    class="border rounded border-gray-200 bg-gray-100"
-                    style="width: 100px; height: 100px;"
-                ></div>
-            </template>
-
-            <div class="mt-2">
-                <input
-                    type="file"
-                    name="image"
-                    id="image"
-                    @change="fileChosen"
-                />
+        <!-- Show the images -->
+        <template x-if="Object.keys(imageUrls).length > 0">
+            <div class="flex flex-wrap">
+                <template x-for="(url, index) in imageUrls" :key="index">
+                    <img
+                        :src="url"
+                        class="object-cover rounded border border-gray-200 mr-2 mb-2"
+                        style="width: 100px; height: 100px;"
+                    />
+                </template>
             </div>
+        </template>
 
-            @error('image') @include('components.inputs.partials.error')
-            @enderror
+        <!-- Show the gray box when image is not available -->
+        <template x-if="Object.keys(imageUrls).length === 0">
+            <div
+                class="border rounded border-gray-200 bg-gray-100"
+                style="width: 100px; height: 100px;"
+            ></div>
+        </template>
+
+        <div class="mt-2">
+            <input
+                type="file"
+                name="image[]"
+                id="image"
+                @change="filesChosen"
+                multiple
+            />
         </div>
-    </x-inputs.group>
+
+        @error('image') @include('components.inputs.partials.error')
+        @enderror
+    </div>
+</x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
         <x-inputs.textarea
