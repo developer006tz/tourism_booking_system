@@ -112,6 +112,7 @@ $toursites_count = App\Models\Toursite::count();
             </div>
             <div class="row g-3">
                 <div class="owl-carousel testimonial-carousel position-relative">
+                    @isset($toursites)
                         @forelse($toursites as $toursite)
                         {{-- {{dd($toursite->allToursiteimages->first()->image)}} --}}
                         <div class="col-md-12 wow zoomIn" data-wow-delay="0.1s">
@@ -123,6 +124,7 @@ $toursites_count = App\Models\Toursite::count();
                         @empty
                         <p>No popular destination yet</p>
                         @endforelse
+                    @endisset
                 </div>
                     
             </div>

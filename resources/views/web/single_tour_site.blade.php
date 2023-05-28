@@ -63,7 +63,7 @@
                 @forelse($toursite->allToursiteimages as $toursiteimage)
 
                 
-                        <div class="col-lg-3 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                        <div class="col-3 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="{{ $toursiteimage->image ? url(\Storage::url($toursiteimage->image)) : '' }}" alt="">
                             </a>
