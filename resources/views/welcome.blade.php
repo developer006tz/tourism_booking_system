@@ -332,14 +332,14 @@ $toursites_count = App\Models\Toursite::count();
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-sm-3 col-md-6">
                     <h4 class="text-white mb-3">Tour and Travel</h4>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
                     <a class="btn btn-link" href="">Our services</a>
                     <a class="btn btn-link" href=" {{route('tour.sites')}}">Tour sites</a>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-sm-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Tanzania</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+255 666 777</p>
@@ -351,14 +351,10 @@ $toursites_count = App\Models\Toursite::count();
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Got any Question</h4>
-                    <p>If you got any Question you can submit here</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your question">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
-                    </div>
+                <div class="col-sm-3 col-md-6">
+                   
                 </div>
+                
             </div>
         </div>
         <div class="container">
