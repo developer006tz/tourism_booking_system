@@ -96,7 +96,7 @@ class ToursiteController extends Controller
         $toursite->update($validated);
 
         return redirect()
-            ->route('toursites.edit', $toursite)
+            ->route('toursites.index', $toursite)
             ->withSuccess(__('crud.common.saved'));
     }
 
@@ -115,4 +115,27 @@ class ToursiteController extends Controller
             ->route('toursites.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+
+    public function web_tour_sites(Request $request): View
+    {
+        $search = $request->get('search', '');
+
+        //Return toursites as well as toursites_images which toursite_id is equal to toursite_id in toursites table
+        $toursites = Toursite::search($search)
+            ->with('allToursiteimages')
+            ->latest()
+            ->paginate(5)
+            ->withQueryString();
+        return view('web.tour_sites', compact('toursites', 'search'));
+    }
+
+    public function web_show_tour_site(Request $request, Toursite $toursite): View
+    {
+
+        
+        $toursite->load('allToursiteimages');
+        return view('web.single_tour_site', compact('toursite'));
+    }
+
 }

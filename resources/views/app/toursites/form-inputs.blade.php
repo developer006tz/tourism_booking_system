@@ -69,7 +69,7 @@
             name="district"
             label="District"
             :value="old('district', ($editing ? $toursite->district : ''))"
-            maxlength="255"
+            maxlength="25500"
             placeholder="District"
         ></x-inputs.text>
     </x-inputs.group>
@@ -89,7 +89,7 @@
         <x-inputs.textarea
             name="attractions"
             label="Attractions"
-            maxlength="255"
+            maxlength="25500"
             >{{ old('attractions', ($editing ? $toursite->attractions : ''))
             }}</x-inputs.textarea
         >

@@ -77,15 +77,15 @@
                                 {{ optional($toursite->country)->name ?? '-' }}
                             </td>
                             <td>{{ $toursite->other_name ?? '-' }}</td>
-                            <td>{{ $toursite->description ?? '-' }}</td>
-                            <td>{{ $toursite->accomodation ?? '-' }}</td>
+                            <td>{{ Str::limit($toursite->description,50) ?? '-' }}</td>
+                            <td>{{ Str::limit($toursite->accomodation,50) ?? '-' }}</td>
                             <td>{{ $toursite->region ?? '-' }}</td>
                             <td>{{ $toursite->district ?? '-' }}</td>
                             <td>{{ $toursite->distance ?? '-' }}</td>
-                            <td>{{ $toursite->attractions ?? '-' }}</td>
+                            <td>{{ Str::limit($toursite->attractions,50) ?? '-' }}</td>
                             <td>{{ $toursite->local_price ?? '-' }}</td>
                             <td>{{ $toursite->international_price ?? '-' }}</td>
-                            <td>{{ $toursite->time_of_visit ?? '-' }}</td>
+                            <td>{{ Str::limit($toursite->time_of_visit,50) ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

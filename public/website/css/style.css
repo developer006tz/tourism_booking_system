@@ -1,6 +1,7 @@
 /********** Template CSS **********/
 :root {
     --primary: #009688;
+    --active: #1eefdb;
     --secondary: #FE8800;
     --light: #F5F5F5;
     --dark: #14141F;
@@ -69,7 +70,7 @@
     position: relative;
     margin-right: 25px;
     padding: 35px 0;
-    color: #FFFFFF !important;
+    color: var(--primary) !important;
     font-size: 18px;
     font-weight: 600;
     outline: none;
@@ -83,7 +84,7 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--primary) !important;
+    color: var(--active) !important;
 }
 
 .navbar-light .navbar-brand img {

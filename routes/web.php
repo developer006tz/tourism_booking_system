@@ -32,6 +32,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('tour-sites', [
+    ToursiteController::class,
+    'web_tour_sites',
+])->name('tour.sites');
+
+Route::get('tour-sites/{toursite}', [
+    ToursiteController::class,
+    'web_show_tour_site',
+])->name('tour_site.show');
+
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
