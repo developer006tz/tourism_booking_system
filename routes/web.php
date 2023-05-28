@@ -17,17 +17,8 @@ use App\Http\Controllers\ToursiteimagesController;
 use App\Http\Controllers\AttractionimagesController;
 use App\Http\Controllers\AccomodationimagesController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+// website routes start here________________________________________________________
 Route::get('/', function () {
     return view('welcome');
 });
@@ -42,6 +33,25 @@ Route::get('tour-sites/{toursite}', [
     'web_show_tour_site',
 ])->name('tour_site.show');
 
+Route::get('tour-sites-about', [
+    ToursiteController::class,
+    'about_us',
+])->name('tour_site.about');
+
+Route::get('tour-sites-services', [
+    ToursiteController::class,
+    'services',
+])->name('tour_site.services');
+
+Route::get('tour-sites-contact', [
+    ToursiteController::class,
+    'contact_us',
+])->name('tour_site.contact_us');
+
+
+// website route ends here _________________________________________________________
+
+// admin routes start here________________________________________________________
 
 Auth::routes();
 

@@ -250,7 +250,7 @@ $toursites_count = App\Models\Toursite::count();
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Travel Guide</h6>
-                <h1 class="mb-5">Meet Our Guide</h1>
+                <h1 class="mb-5">Meet Our Guide [! still in construction !]</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">

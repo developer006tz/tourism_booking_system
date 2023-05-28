@@ -138,4 +138,22 @@ class ToursiteController extends Controller
         return view('web.single_tour_site', compact('toursite'));
     }
 
+    public function about_us(): View
+    {
+      
+        return view('web.about_us');
+    }
+
+    public function services(): View
+    {
+
+        return view('web.services');
+    }
+
+    public function contact_us(): View
+    {
+
+        return view('web.contact_us');
+    }
+
 }
