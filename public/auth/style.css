@@ -46,9 +46,9 @@ body::before {
 	margin-bottom: 30px;
 }
 
-.form .signup-form {
-	display: none;
-}
+/*.form .signup-form {*/
+/*	display: none;*/
+/*}*/
 
 .form .user-input {
 	width: 320px;

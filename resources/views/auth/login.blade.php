@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="{{asset('admin/assets/css/select2.min.css')}}">
-		
+
 	</head>
 	<style>
 		.invalid-feedback{
@@ -42,64 +42,12 @@
 				</div>
 				<input class="btn" type="submit" name="" value="LOGIN">
 				<div class="options-02">
-					<p>Not Registered? <a href="#register">Create an Account</a></p>
+					<p>Not Registered? <a href="{{route('register')}}">Create an Account</a></p>
 				</div>
 			</form>
 			<!--login form end-->
 			<!--signup form start-->
-			@if (Route::has('register'))
-			<form class="signup-form" action="{{route('register')}}" method="post">
-				@csrf
-				<i class="fas fa-user-plus"></i>
-				<input class="user-input" type="text" name="name" placeholder="Name" required>
-				@error('name')
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-			@enderror
-				<input class="user-input" type="email" name="email" placeholder="Email Address" autocomplete="off" required>
-				@error('email')
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-			@enderror
-			@error('phone')
-				<input class="user-input" type="text" name="phone" placeholder="phone" required>
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-			@enderror
-				<select name="country" class="user-input select2" id="" style="margin-bottom:10px;">
-					<option value="">Select country</option>
-					@php
-						$country = App\Models\Country::all();
-					@endphp
-					@forelse ($country as $item)
-						<option value="{{$item->id}}">{{$item->name}}</option>
 
-					@empty
-						<option value="">No Country Found</option>
-					@endforelse
-				</select>
-				@error('country')
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-			@enderror
-				<input class="user-input" type="password" name="password" style="margin-top:10px;" placeholder="Password" required>
-				@error('password')
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-			@enderror
-
-				<input class="user-input" type="password" name="password_confirmation" placeholder="Confirm password" required>
-				<input class="btn" type="submit"  value="SIGN UP">
-				<div class="options-02">
-					<p>Already Registered? <a href="{{route('login')}}">Sign In</a></p>
-				</div>
-			</form>
-			@endif
 			<!--signup form end-->
 		</div>
 		<!--form area end-->
@@ -119,7 +67,7 @@
 			});
 		</script>
 
-		
+
 
 	</body>
 </html>
