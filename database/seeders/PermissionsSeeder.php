@@ -86,6 +86,8 @@ class PermissionsSeeder extends Seeder
         $userRole = Role::create(['name' => 'user']);
         $userRole->givePermissionTo($currentPermissions);
 
+        //create user role tourist
+
         // Create admin exclusive permissions
         Permission::create(['name' => 'list roles']);
         Permission::create(['name' => 'view roles']);
@@ -104,6 +106,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'create users']);
         Permission::create(['name' => 'update users']);
         Permission::create(['name' => 'delete users']);
+
+        $touristRole = Role::create(['name' => 'tourist']);
+        //create tourist permissions
+        $touristPermissions = Permission::whereIn('name', ['list allaccomodations', 'view allaccomodations', 'list allattractions', 'view allattractions', 'list alltourchallenges', 'view alltourchallenges', 'list toursites', 'view toursites', 'list alltransportation', 'view alltransportation', 'list tourguideagents', 'view tourguideagents' ])->get();
+        $touristRole->givePermissionTo($touristPermissions);
+
 
         // Create admin role and assign all permissions
         $allPermissions = Permission::all();
