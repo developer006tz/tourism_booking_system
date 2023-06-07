@@ -60,6 +60,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
+        Route::get('tour-booking', [
+            HomeController::class,
+            'welcome',
+        ])->name('website.index');
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);
 

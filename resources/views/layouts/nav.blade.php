@@ -1,6 +1,6 @@
 	<div class="header-left">
-				<a href="index.html" class="logo"> <img src="{{asset('logo.jpg')}}" width="50" height="70" alt="logo"> <span class="logoclass">TOUR ADMIN</span> </a>
-				<a href="index.html" class="logo logo-small"> <img src="{{asset('logo.jpg')}}" alt="Logo" width="30" height="30"> </a>
+				<a href="{{route('website.index')}}" class="logo"> <img src="{{asset('logo.jpg')}}" width="50" height="70" alt="logo"> <span class="logoclass">TOUR ADMIN</span> </a>
+				<a href="{{route('website.index')}}" class="logo logo-small"> <img src="{{asset('logo.jpg')}}" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
