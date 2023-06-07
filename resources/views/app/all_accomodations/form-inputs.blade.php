@@ -57,7 +57,7 @@
             name="local_night_fee"
             label="Local Night Fee"
             :value="old('local_night_fee', ($editing ? $accomodations->local_night_fee : ''))"
-            max="255"
+            max="1000000000"
             step="0.01"
             placeholder="Local Night Fee"
         ></x-inputs.number>
@@ -68,7 +68,7 @@
             name="international_night_fee"
             label="International Night Fee"
             :value="old('international_night_fee', ($editing ? $accomodations->international_night_fee : ''))"
-            max="255"
+            max="1000000000"
             step="0.01"
             placeholder="International Night Fee"
         ></x-inputs.number>

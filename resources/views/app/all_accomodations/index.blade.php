@@ -54,7 +54,7 @@
                             <th class="text-left">
                                 @lang('crud.all_accomodations.inputs.food_service')
                             </th>
-                            <th class="text-left">
+                            <th class="text-left px-6 py-3"  scope="col">
                                 @lang('crud.all_accomodations.inputs.food_types_and_price')
                             </th>
                             <th class="text-left">
@@ -90,7 +90,7 @@
                                 '-' }}
                             </td>
                             <td>{{ $accomodations->food_service ?? '-' }}</td>
-                            <td>
+                            <td  scope="col" class="px-6 py-3">
                                 {{ $accomodations->food_types_and_price ?? '-'
                                 }}
                             </td>

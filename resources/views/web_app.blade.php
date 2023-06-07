@@ -91,7 +91,7 @@
                     <a href="{{route('tour_site.contact_us')}}" class="nav-item nav-link">Contact</a>
                 </div>
                 @auth
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Book now</a>
+                <a href="{{route('booking.index')}}" class="btn btn-primary rounded-pill py-2 px-4">Book now</a>
                     @else
                     <a href="{{route('register')}}" class="btn btn-primary rounded-pill py-2 px-4">Register to Book now</a>
                 @endauth

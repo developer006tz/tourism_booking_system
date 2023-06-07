@@ -60,7 +60,7 @@ class AccomodationsController extends Controller
         $accomodations = Accomodations::create($validated);
 
         return redirect()
-            ->route('all-accomodations.edit', $accomodations)
+            ->route('all-accomodationimages.create', $accomodations)
             ->withSuccess(__('crud.common.created'));
     }
 

@@ -23,6 +23,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('tour-sites-home', [
+    ToursiteController::class,
+    'website_index',
+])->name('website.index');
+
 Route::get('tour-sites', [
     ToursiteController::class,
     'web_tour_sites',
@@ -51,6 +56,12 @@ Route::get('tour-sites-contact', [
 
 // website route ends here _________________________________________________________
 
+//Booking routes
+Route::get('booking', [
+    BookingController::class,
+    'createBookingPackage',
+])->name('booking.index');
+
 // admin routes start here________________________________________________________
 
 Auth::routes();
@@ -60,6 +71,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
+    Route::get('welcome', [
+        HomeController::class,
+        'welcome',
+    ])->name('welcome.index');
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);
 

@@ -156,4 +156,10 @@ class ToursiteController extends Controller
         return view('web.contact_us');
     }
 
+    public function website_index(): View
+    {
+        $toursites = Toursite::with('allToursiteimages')->latest()->paginate(5);
+        return view('welcome', compact('toursites'));
+    }
+
 }

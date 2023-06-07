@@ -138,4 +138,35 @@ class BookingController extends Controller
             ->route('bookings.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+    /**
+     * create booking_package method.
+     */
+    public function createBookingPackage(Request $request): View
+    {
+        $this->authorize('create', Booking::class);
+        $search = $request->get('search', '');
+
+        $users = User::pluck('name', 'id');
+        $toursites = Toursite::search($search)
+            ->with('allToursiteimages')
+            ->latest()
+            ->paginate(3)
+            ->withQueryString();
+        $allTransportation = Transportation::pluck('image', 'id');
+        $allAccomodations = Accomodations::pluck('name', 'id');
+
+        return view(
+            'book.book',
+            compact(
+                'users',
+                'toursites',
+                'allTransportation',
+                'allAccomodations'
+            )
+        );
+    }
+
+    
+
 }

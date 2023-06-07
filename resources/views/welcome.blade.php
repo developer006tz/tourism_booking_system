@@ -117,7 +117,7 @@ $toursites_count = App\Models\Toursite::count();
                         {{-- {{dd($toursite->allToursiteimages->first()->image)}} --}}
                         <div class="col-md-12 wow zoomIn" data-wow-delay="0.1s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                {{-- <img class="img-fluid"  src="{{ $toursite->allToursiteimages ? url(\Storage::url($toursite->allToursiteimages->first()->image)) : '' }}" alt="{{$toursite->name ?? '-'}}"> --}}
+                                <img class="img-fluid"  src="{{ $toursite->allToursiteimages ? url(\Storage::url($toursite->allToursiteimages->first()->image)) : '' }}" alt="{{$toursite->name ?? '-'}}">
                                 <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">{{$toursite->name ?? '-'}}</div>
                             </a>
                         </div>
