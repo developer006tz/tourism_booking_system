@@ -67,7 +67,7 @@ class BookingController extends Controller
         $booking = Booking::create($validated);
 
         return redirect()
-            ->route('bookings.edit', $booking)
+            ->route('bookings.index', $booking)
             ->withSuccess(__('crud.common.created'));
     }
 

@@ -235,7 +235,13 @@
                     <span>/ per person</span>
                   </p>
 
-                  <button class="btn btn-secondary">Book Now</button>
+                  {{-- <button class="btn btn-secondary">Book Now</button> --}}
+                    <form action="{{route('bookings.store')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="toursite_id" value="{{$toursite->id}}">
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                        <button type="submit" class="btn btn-secondary">Book Now</button>
+                    </form>
 
                 </div>
 

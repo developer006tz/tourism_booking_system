@@ -62,4 +62,9 @@ class Toursite extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function bookinPackages()
+    {
+        return $this->hasMany(BookinPackage::class);
+    }
 }

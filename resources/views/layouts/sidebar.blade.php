@@ -86,15 +86,15 @@
 						@can('view-any', App\Models\User::class)
 						<li class="submenu"> <a href="#"><i class="fas fa-user-edit"></i> <span> Manage Users </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="{{ route('users.index') }}"> add </a></li>
-								<li><a href="{{ route('users.create') }}"> view</a></li>
+								<li><a href="{{ route('users.create') }}"> add </a></li>
+								<li><a href="{{ route('users.index') }}"> view</a></li>
 							</ul>
 						</li>
 						@endcan
 						@can('view-any', App\Models\Tourchallenges::class)
 						<li class="submenu"> <a href="#"><i class="fas fa-paste"></i></i> <span> Tour challenges </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="{{ route('all-tourchallenges.index') }}"> add </a></li>
+								<li><a href="{{ route('all-tourchallenges.create') }}"> add </a></li>
 								<li><a href="{{ route('all-tourchallenges.index') }}"> view</a></li>
 							</ul>
 						</li>
