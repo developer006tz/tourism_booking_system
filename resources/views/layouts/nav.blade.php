@@ -1,4 +1,6 @@
 	<div class="header-left">
+				<a href="{{route('website.index')}}" class="logo"> <img src="{{asset('logo.jpg')}}" width="50" height="70" alt="logo"> <span class="logoclass">TOUR ADMIN</span> </a>
+				<a href="{{route('website.index')}}" class="logo logo-small"> <img src="{{asset('logo.jpg')}}" alt="Logo" width="30" height="30"> </a>
 				<a href="{{url('website.index')}}" class="logo"> <img src="{{asset('logo.jpg')}}" width="50" height="70" alt="logo"> <span class="logoclass">TOUR ADMIN</span> </a>
 				<a href="{{url('website.index')}}" class="logo logo-small"> <img src="{{asset('logo.jpg')}}" alt="Logo" width="30" height="30"> </a>
 			</div>

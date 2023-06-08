@@ -42,8 +42,4 @@ class HomeController extends Controller
 
         return view('home', compact('bookingCount', 'userCount', 'tourChallenge', 'attractionCount', 'accomodationCount', 'toursiteCount'));
     }
-
-    public function welcome(){
-        return view('welcome');
-    }
 }
