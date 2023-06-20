@@ -33,7 +33,9 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="package-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ $toursite->allToursiteimages ? url(\Storage::url($toursite->allToursiteimages->first()->image)) : '' }}" alt="{{$toursite->name ?? '-'}}">
+<!--                             <img class="img-fluid" src="{{ $toursite->allToursiteimages ? url(\Storage::url($toursite->allToursiteimages->first()->image)) : '' }}" alt="{{$toursite->name ?? '-'}}"> -->
+                            <img class="img-fluid" src="{{ $toursite->allToursiteimages && $toursite->allToursiteimages->first() ? url(\Storage::url($toursite->allToursiteimages->first()->image)) : '' }}" alt="{{$toursite->name ?? '-'}}">
+
                         </div>
                         <div class="d-flex border-bottom">
                             <small class="flex-fill text-center border-end py-2"><i class="fas fa-globe-africa text-primary me-2"></i> {{$toursite->country->name ?? '-'}}</small>
