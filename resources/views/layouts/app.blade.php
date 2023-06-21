@@ -37,7 +37,9 @@
 		</div>
 	</div>
     @stack('modals')
-       
+    @php
+        $chartData = json_encode($chartData);
+        @endphp
 	{{-- <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
 	<script src="{{asset('admin/assets/js/jquery-3.5.1.min.js')}}"></script>
 	<script src="{{asset('admin/assets/js/popper.min.js')}}"></script>
@@ -93,6 +95,7 @@ document.addEventListener('alpine:init', () => {
         $('.select2').select2({
             placeholder: 'Select a category'
         });
+
     });
 </script>
 </body>
